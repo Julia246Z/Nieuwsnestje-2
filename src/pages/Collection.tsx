@@ -24,26 +24,32 @@ const Collection = () => {
           <p className="text-xl text-muted-foreground mb-4">
             In dit overzicht vind je alle diertjes die je hebt gespaard
           </p>
-          <p className="text-lg font-bold text-primary">
-            Je hebt {unlockedCount} van de {animals.length} diertjes verzameld!
-          </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {animals.map((animal, index) => (
-            <div key={index} className={`nieuwsnestje-card p-8 text-center ${!animal.unlocked ? 'opacity-50' : ''}`}>
-              <div className="text-6xl mb-4 filter grayscale-0">
-                {animal.unlocked ? animal.emoji : '🔒'}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+          {animals.slice(0, 3).map((animal, index) => (
+            <div key={index} className="text-center">
+              <div className="w-32 h-32 mx-auto mb-4 flex items-center justify-center">
+                <span className="text-6xl">{animal.unlocked ? animal.emoji : '🔒'}</span>
               </div>
               <p className="text-sm text-muted-foreground mb-2">{animal.week}</p>
               <h3 className="text-xl font-bold text-foreground">
                 {animal.unlocked ? animal.name : '???'}
               </h3>
-              {animal.unlocked && (
-                <Link to="/diertje" className="inline-block mt-4 px-6 py-2 bg-secondary text-foreground rounded-full font-bold hover:scale-105 transition-transform">
-                  Bekijk diertje
-                </Link>
-              )}
+            </div>
+          ))}
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto mt-12">
+          {animals.slice(3, 5).map((animal, index) => (
+            <div key={index + 3} className="text-center">
+              <div className="w-32 h-32 mx-auto mb-4 flex items-center justify-center">
+                <span className="text-6xl">{animal.unlocked ? animal.emoji : '🔒'}</span>
+              </div>
+              <p className="text-sm text-muted-foreground mb-2">{animal.week}</p>
+              <h3 className="text-xl font-bold text-foreground">
+                {animal.unlocked ? animal.name : '???'}
+              </h3>
             </div>
           ))}
         </div>

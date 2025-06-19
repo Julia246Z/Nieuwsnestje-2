@@ -8,7 +8,6 @@ const Homepage = () => {
       <Navigation />
       
       <div className="container mx-auto px-6 py-8">
-        {/* Pip's welkom sectie */}
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-foreground mb-4">Ontmoet Pip!</h2>
           <p className="text-xl text-muted-foreground mb-8">
