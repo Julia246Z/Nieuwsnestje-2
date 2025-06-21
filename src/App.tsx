@@ -12,6 +12,7 @@ import AnimalCare from "./pages/AnimalCare";
 import Quiz from "./pages/Quiz";
 import NewsArticle from "./pages/NewsArticle";
 import NewsHome from "./pages/NewsHome";
+import NewsIntro from "./pages/NewsIntro";
 import Teachers from "./pages/Teachers";
 import NotFound from "./pages/NotFound";
 
@@ -32,6 +33,7 @@ const App = () => (
           <Route path="/diertje" element={<AnimalCare />} />
           <Route path="/news" element={<NewsHome />} />
           <Route path="/news/:id" element={<NewsArticle />} />
+          <Route path="/news-intro" element={<NewsIntro />} />
           <Route path="/docenten" element={<Teachers />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

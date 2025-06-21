@@ -20,12 +20,12 @@ const NewsArticle = () => {
               <span className="text-8xl">✈️</span>
             </div>
             
-            <div className="nieuwsnestje-button-secondary p-6 text-center">
+            <Link to="/news-intro" className="nieuwsnestje-button-secondary p-6 text-center block">
               <div className="flex items-center justify-center space-x-4 mb-4">
                 <span className="text-4xl">🐧</span>
                 <h3 className="text-xl font-bold">Lees het nieuws met Pip!</h3>
               </div>
-            </div>
+            </Link>
           </div>
 
           {/* Rechts: Nieuwsartikel */}
