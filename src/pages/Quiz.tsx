@@ -9,6 +9,7 @@ const Quiz = () => {
   const [selectedAnswer, setSelectedAnswer] = useState<string>("");
   const [showFeedback, setShowFeedback] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
+  const [quizComplete, setQuizComplete] = useState(false);
 
   const questions = [
     {
@@ -28,11 +29,42 @@ const Quiz = () => {
   };
 
   const nextQuestion = () => {
-    setCurrentQuestion(prev => prev + 1);
-    setSelectedAnswer("");
-    setShowFeedback(false);
-    setIsCorrect(false);
+    if (currentQuestion + 1 < questions.length) {
+      setCurrentQuestion(prev => prev + 1);
+      setSelectedAnswer("");
+      setShowFeedback(false);
+      setIsCorrect(false);
+    } else {
+      setQuizComplete(true);
+    }
   };
+
+  if (quizComplete) {
+    return (
+      <div className="min-h-screen bg-background">
+        <Navigation />
+        
+        <div className="container mx-auto px-6 py-8">
+          <div className="mb-8">
+            <ArrowLeft className="w-8 h-8 text-foreground cursor-pointer" onClick={() => window.history.back()} />
+          </div>
+
+          <div className="text-center max-w-4xl mx-auto">
+            <div className="w-32 h-32 flex items-center justify-center mx-auto mb-8">
+              <span className="text-6xl">🎉</span>
+            </div>
+            
+            <h2 className="text-4xl font-bold text-foreground mb-4">Quiz voltooid!</h2>
+            <p className="text-xl text-muted-foreground mb-8">Goed gedaan! Je hebt alle vragen beantwoord.</p>
+            
+            <Link to="/home" className="nieuwsnestje-button">
+              Terug naar home
+            </Link>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-background">
@@ -57,9 +89,15 @@ const Quiz = () => {
           
           {showFeedback && (
             <div className="text-right">
-              <button onClick={nextQuestion} className="text-lg text-muted-foreground hover:text-foreground">
-                Volgende vraag →
-              </button>
+              {currentQuestion + 1 < questions.length ? (
+                <button onClick={nextQuestion} className="text-lg text-muted-foreground hover:text-foreground">
+                  Volgende vraag →
+                </button>
+              ) : (
+                <button onClick={nextQuestion} className="text-lg text-muted-foreground hover:text-foreground">
+                  Quiz voltooien →
+                </button>
+              )}
             </div>
           )}
         </div>
