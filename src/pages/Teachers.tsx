@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Navigation from "../components/Navigation";
@@ -35,11 +34,11 @@ const Teachers = () => {
   ];
 
   const weeks = [
-    { number: "Week 22", mascot: "Pip", topic: "Vliegtuigen en reizen" },
-    { number: "Week 21", mascot: "Nina", topic: "Dieren in de natuur" },
-    { number: "Week 20", mascot: "Timo", topic: "Muziek en festivals" },
-    { number: "Week 19", mascot: "Sam", topic: "Sport en gezondheid" },
-    { number: "Week 18", mascot: "Lisa", topic: "Feesten en tradities" }
+    { number: "22", mascot: "Pip", topic: "Vliegtuigen en reizen" },
+    { number: "21", mascot: "Nina", topic: "Dieren in de natuur" },
+    { number: "20", mascot: "Timo", topic: "Muziek en festivals" },
+    { number: "19", mascot: "Sam", topic: "Sport en gezondheid" },
+    { number: "18", mascot: "Lisa", topic: "Feesten en tradities" }
   ];
 
   const searchResults = [
@@ -146,13 +145,13 @@ const Teachers = () => {
                 {weeks.map((week, index) => (
                   <Link
                     key={index}
-                    to="/quiz"
+                    to={`/docenten/week/${week.number}`}
                     className="bg-gradient-to-br from-blue-50 to-purple-50 p-4 rounded-2xl border-2 border-blue-200 text-center block"
                   >
                     <div className="text-2xl mb-2">
                       {index === 0 ? "🐣" : index === 1 ? "🦋" : index === 2 ? "🎵" : index === 3 ? "⚽" : "🎉"}
                     </div>
-                    <h4 className="font-bold text-foreground mb-1">{week.number}</h4>
+                    <h4 className="font-bold text-foreground mb-1">Week {week.number}</h4>
                     <p className="text-sm font-bold text-primary mb-1">{week.mascot}</p>
                     <p className="text-xs text-muted-foreground">{week.topic}</p>
                   </Link>

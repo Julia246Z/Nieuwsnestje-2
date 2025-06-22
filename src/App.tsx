@@ -14,6 +14,7 @@ import NewsArticle from "./pages/NewsArticle";
 import NewsHome from "./pages/NewsHome";
 import NewsIntro from "./pages/NewsIntro";
 import Teachers from "./pages/Teachers";
+import WeekOverview from "./pages/WeekOverview";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -35,6 +36,7 @@ const App = () => (
           <Route path="/news/:id" element={<NewsArticle />} />
           <Route path="/news-intro" element={<NewsIntro />} />
           <Route path="/docenten" element={<Teachers />} />
+          <Route path="/docenten/week/:weekNumber" element={<WeekOverview />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
