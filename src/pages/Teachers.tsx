@@ -1,7 +1,8 @@
+
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Navigation from "../components/Navigation";
-import { Search, Star, Download, TrendingUp, Clock, CheckCircle, BarChart3, Calendar, Bookmark } from "lucide-react";
+import { Search, Download, TrendingUp, Clock, CheckCircle, BarChart3, Calendar } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart";
 import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer } from "recharts";
@@ -45,12 +46,6 @@ const Teachers = () => {
     { week: "Week 22", title: "Vliegtuig maakt noodlanding", summary: "Een vliegtuig moest plotseling landen...", icon: "✈️" },
     { week: "Week 20", title: "3FM presenteert nieuw programma", summary: "De radiozender start met een kinderprogramma...", icon: "📻" },
     { week: "Week 19", title: "Dierentuin verwelkomt baby's", summary: "Veel jonge dieren geboren dit seizoen...", icon: "🐯" }
-  ];
-
-  const savedItems = [
-    { title: "Kleurplaat vliegtuigen", type: "Kleurplaat", week: "Week 22", icon: "🎨" },
-    { title: "Quiz over dieren", type: "Quiz", week: "Week 21", icon: "🧩" },
-    { title: "Gespreksvragen muziek", type: "Gespreksvragen", week: "Week 20", icon: "💬" }
   ];
 
   // Data voor de grafiek
@@ -119,7 +114,6 @@ const Teachers = () => {
                         <div className="flex-1">
                           <div className="flex justify-between items-start mb-2">
                             <span className="text-sm font-bold text-primary">{result.week}</span>
-                            <Star className="text-gray-300" size={16} />
                           </div>
                           <h5 className="font-bold text-foreground mb-1">{result.title}</h5>
                           <p className="text-sm text-muted-foreground">{result.summary}</p>
@@ -155,31 +149,6 @@ const Teachers = () => {
                     <p className="text-sm font-bold text-primary mb-1">{week.mascot}</p>
                     <p className="text-xs text-muted-foreground">{week.topic}</p>
                   </Link>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-
-          {/* Opgeslagen items */}
-          <Card className="bg-white rounded-3xl shadow-lg border-2 border-transparent">
-            <CardHeader>
-              <CardTitle className="text-2xl font-bold text-foreground flex items-center">
-                <Bookmark className="mr-3" />
-                Opgeslagen materiaal
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                {savedItems.map((item, index) => (
-                  <div
-                    key={index}
-                    className="bg-yellow-50 p-4 rounded-2xl border-2 border-yellow-200 text-center cursor-pointer"
-                  >
-                    <div className="text-2xl mb-2">{item.icon}</div>
-                    <h4 className="font-bold text-foreground mb-1">{item.title}</h4>
-                    <p className="text-sm text-primary font-bold mb-1">{item.type}</p>
-                    <p className="text-xs text-muted-foreground">{item.week}</p>
-                  </div>
                 ))}
               </div>
             </CardContent>

@@ -10,7 +10,7 @@ const WeekOverview = () => {
   
   // Voorbeeld data voor een week - in werkelijkheid zou dit van een API komen
   const weekData = {
-    21: {
+    "21": {
       mascot: "Nina",
       topic: "Dieren in de natuur",
       days: [
@@ -58,7 +58,7 @@ const WeekOverview = () => {
     }
   };
 
-  const currentWeek = weekData[weekNumber as keyof typeof weekData] || weekData[21];
+  const currentWeek = weekData[weekNumber as keyof typeof weekData] || weekData["21"];
 
   return (
     <div className="min-h-screen bg-[#FFF8EF]">
