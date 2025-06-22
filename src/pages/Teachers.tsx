@@ -1,7 +1,10 @@
 
 import { useState } from "react";
 import Navigation from "../components/Navigation";
-import { Search, Star, Download, TrendingUp, Clock, CheckCircle, BarChart3 } from "lucide-react";
+import { Search, Star, Download, TrendingUp, Clock, CheckCircle, BarChart3, Calendar } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart";
+import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer } from "recharts";
 
 const Teachers = () => {
   const [selectedCategory, setSelectedCategory] = useState("Alle onderwerpen");
@@ -31,192 +34,284 @@ const Teachers = () => {
   ];
 
   const weeks = [
-    "Week 22 (Pip)",
-    "Week 21 (Nina)", 
-    "Week 20 (Timo)",
-    "Week 19 (Sam)",
-    "Week 18 (Lisa)"
+    { number: "Week 22", mascot: "Pip", topic: "Vliegtuigen en reizen" },
+    { number: "Week 21", mascot: "Nina", topic: "Dieren in de natuur" },
+    { number: "Week 20", mascot: "Timo", topic: "Muziek en festivals" },
+    { number: "Week 19", mascot: "Sam", topic: "Sport en gezondheid" },
+    { number: "Week 18", mascot: "Lisa", topic: "Feesten en tradities" }
   ];
+
+  const searchResults = [
+    { week: "Week 22", title: "Vliegtuig maakt noodlanding", summary: "Een vliegtuig moest plotseling landen..." },
+    { week: "Week 20", title: "3FM presenteert nieuw programma", summary: "De radiozender start met een kinderprogramma..." },
+    { week: "Week 19", title: "Dierentuin verwelkomt baby's", summary: "Veel jonge dieren geboren dit seizoen..." }
+  ];
+
+  // Data voor de grafiek
+  const chartData = [
+    { week: "Week 18", quizzes: 8, score: 2.8 },
+    { week: "Week 19", quizzes: 10, score: 3.1 },
+    { week: "Week 20", quizzes: 15, score: 3.0 },
+    { week: "Week 21", quizzes: 13, score: 3.4 },
+    { week: "Week 22", quizzes: 12, score: 3.2 }
+  ];
+
+  const chartConfig = {
+    quizzes: {
+      label: "Gemaakte quizzes",
+      color: "#FFA94D"
+    },
+    score: {
+      label: "Gemiddelde score",
+      color: "#AEDFF7"
+    }
+  };
 
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
       
       <div className="container mx-auto px-6 py-8">
-        {/* Titel en instructie */}
+        {/* Titel en uitleg */}
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-foreground mb-4">Instellingen voor docenten</h2>
           <p className="text-xl text-muted-foreground">
-            Pas hier je voorkeuren aan en bekijk de voortgang van je klas
+            Pas filters aan, bekijk de voortgang van je klas of duik terug in vorige weken.
           </p>
         </div>
 
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Filtersectie */}
-          <div className="lg:col-span-2 space-y-6">
-            <div className="nieuwsnestje-card p-6">
-              <h3 className="text-2xl font-bold text-foreground mb-6 flex items-center">
+        <div className="max-w-7xl mx-auto space-y-8">
+          {/* Zoekfunctie */}
+          <Card className="nieuwsnestje-card">
+            <CardHeader>
+              <CardTitle className="text-2xl font-bold text-foreground flex items-center">
                 <Search className="mr-3" />
-                Filters en zoeken
-              </h3>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {/* Onderwerp/categorie */}
-                <div>
-                  <label className="text-lg font-bold text-foreground mb-3 block">Onderwerp/categorie</label>
-                  <select 
-                    value={selectedCategory}
-                    onChange={(e) => setSelectedCategory(e.target.value)}
-                    className="w-full p-3 rounded-2xl border-2 border-gray-200 focus:border-primary font-medium"
-                  >
-                    {categories.map(cat => (
-                      <option key={cat} value={cat}>{cat}</option>
-                    ))}
-                  </select>
-                </div>
-
-                {/* Leerniveau */}
-                <div>
-                  <label className="text-lg font-bold text-foreground mb-3 block">Leerniveau</label>
-                  <select 
-                    value={selectedLevel}
-                    onChange={(e) => setSelectedLevel(e.target.value)}
-                    className="w-full p-3 rounded-2xl border-2 border-gray-200 focus:border-primary font-medium"
-                  >
-                    {levels.map(level => (
-                      <option key={level} value={level}>{level}</option>
-                    ))}
-                  </select>
-                </div>
-
-                {/* Soort materiaal */}
-                <div>
-                  <label className="text-lg font-bold text-foreground mb-3 block">Soort materiaal</label>
-                  <select 
-                    value={selectedMaterial}
-                    onChange={(e) => setSelectedMaterial(e.target.value)}
-                    className="w-full p-3 rounded-2xl border-2 border-gray-200 focus:border-primary font-medium"
-                  >
-                    {materials.map(material => (
-                      <option key={material} value={material}>{material}</option>
-                    ))}
-                  </select>
-                </div>
-
-                {/* Weekselectie */}
-                <div>
-                  <label className="text-lg font-bold text-foreground mb-3 block">Weekselectie</label>
-                  <select 
-                    value={selectedWeek}
-                    onChange={(e) => setSelectedWeek(e.target.value)}
-                    className="w-full p-3 rounded-2xl border-2 border-gray-200 focus:border-primary font-medium"
-                  >
-                    {weeks.map(week => (
-                      <option key={week} value={week}>{week}</option>
-                    ))}
-                  </select>
-                </div>
-              </div>
-
-              {/* Zoekveld */}
-              <div className="mt-6">
-                <label className="text-lg font-bold text-foreground mb-3 block">Zoek op trefwoord</label>
+                Zoek naar artikelen
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="mb-6">
                 <div className="relative">
                   <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
                   <input
                     type="text"
-                    placeholder="Bijv. 3FM, vliegtuig, dieren..."
+                    placeholder="Zoek op onderwerp of woord zoals '3FM' of 'oorlog'"
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
-                    className="w-full pl-12 pr-4 py-3 rounded-2xl border-2 border-gray-200 focus:border-primary font-medium"
+                    className="w-full pl-12 pr-4 py-4 rounded-2xl border-2 border-gray-200 focus:border-primary font-medium text-lg"
                   />
                 </div>
               </div>
-
-              {/* Favorieten */}
-              <div className="mt-6 p-4 bg-yellow-50 rounded-2xl border-2 border-yellow-200">
-                <div className="flex items-center">
-                  <Star className="text-yellow-500 mr-2" fill="currentColor" />
-                  <span className="font-bold text-foreground">Favorieten: 3 items opgeslagen</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Voortgangssectie */}
-          <div className="space-y-6">
-            <div className="nieuwsnestje-card p-6">
-              <h3 className="text-2xl font-bold text-foreground mb-6 flex items-center">
-                <BarChart3 className="mr-3" />
-                Klasvoortgang
-              </h3>
               
-              <div className="space-y-4">
-                {/* Gemaakte quizzen */}
-                <div className="bg-green-50 p-4 rounded-2xl border-2 border-green-200">
-                  <div className="flex items-center mb-2">
-                    <CheckCircle className="text-green-600 mr-2" size={20} />
-                    <span className="font-bold text-foreground">Quizzen voltooid</span>
-                  </div>
-                  <p className="text-2xl font-bold text-green-600">12 deze week</p>
-                  <p className="text-sm text-muted-foreground">Gemiddeld per kind</p>
+              {searchTerm && (
+                <div className="space-y-3">
+                  <h4 className="font-bold text-foreground mb-3">Zoekresultaten:</h4>
+                  {searchResults.map((result, index) => (
+                    <div key={index} className="bg-gray-50 p-4 rounded-2xl border-2 border-gray-100">
+                      <div className="flex justify-between items-start mb-2">
+                        <span className="text-sm font-bold text-primary">{result.week}</span>
+                        <Star className="text-gray-300" size={16} />
+                      </div>
+                      <h5 className="font-bold text-foreground mb-1">{result.title}</h5>
+                      <p className="text-sm text-muted-foreground">{result.summary}</p>
+                    </div>
+                  ))}
                 </div>
+              )}
+            </CardContent>
+          </Card>
 
-                {/* Tijd besteed */}
-                <div className="bg-blue-50 p-4 rounded-2xl border-2 border-blue-200">
-                  <div className="flex items-center mb-2">
-                    <Clock className="text-blue-600 mr-2" size={20} />
-                    <span className="font-bold text-foreground">Tijd besteed</span>
+          {/* Weekterugblik */}
+          <Card className="nieuwsnestje-card">
+            <CardHeader>
+              <CardTitle className="text-2xl font-bold text-foreground flex items-center">
+                <Calendar className="mr-3" />
+                Bekijk vorige weken
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
+                {weeks.map((week, index) => (
+                  <div key={index} className="bg-gradient-to-br from-blue-50 to-purple-50 p-4 rounded-2xl border-2 border-blue-200 text-center">
+                    <div className="text-2xl mb-2">
+                      {index === 0 ? "🐣" : index === 1 ? "🦋" : index === 2 ? "🎵" : index === 3 ? "⚽" : "🎉"}
+                    </div>
+                    <h4 className="font-bold text-foreground mb-1">{week.number}</h4>
+                    <p className="text-sm font-bold text-primary mb-1">{week.mascot}</p>
+                    <p className="text-xs text-muted-foreground">{week.topic}</p>
                   </div>
-                  <p className="text-2xl font-bold text-blue-600">7 min</p>
-                  <p className="text-sm text-muted-foreground">Gemiddeld per kind</p>
-                </div>
-
-                {/* Gemiddelde score */}
-                <div className="bg-purple-50 p-4 rounded-2xl border-2 border-purple-200">
-                  <div className="flex items-center mb-2">
-                    <TrendingUp className="text-purple-600 mr-2" size={20} />
-                    <span className="font-bold text-foreground">Gemiddelde score</span>
-                  </div>
-                  <p className="text-2xl font-bold text-purple-600">3,2 / 4</p>
-                  <p className="text-sm text-muted-foreground">Goed beantwoord</p>
-                </div>
-
-                {/* Veel gemaakte fouten */}
-                <div className="bg-orange-50 p-4 rounded-2xl border-2 border-orange-200">
-                  <div className="flex items-center mb-2">
-                    <span className="text-orange-600 mr-2">❗</span>
-                    <span className="font-bold text-foreground">Aandachtspunt</span>
-                  </div>
-                  <p className="text-sm text-foreground">Meeste fouten bij vraag over "Waar ging het vliegtuig naartoe?"</p>
-                </div>
+                ))}
               </div>
-            </div>
-          </div>
-        </div>
+            </CardContent>
+          </Card>
 
-        {/* Downloadsectie */}
-        <div className="max-w-7xl mx-auto mt-8">
-          <div className="nieuwsnestje-card p-8">
-            <h3 className="text-2xl font-bold text-foreground mb-6 flex items-center">
-              <Download className="mr-3" />
-              Download materialen
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <button className="nieuwsnestje-button w-full text-center p-6">
-                <span className="text-3xl mb-2 block">📄</span>
-                Verwerkingsopdrachten downloaden
-              </button>
-              <button className="nieuwsnestje-button w-full text-center p-6">
-                <span className="text-3xl mb-2 block">🎨</span>
-                Kleurplaten downloaden
-              </button>
-              <button className="nieuwsnestje-button w-full text-center p-6">
-                <span className="text-3xl mb-2 block">💬</span>
-                Gespreksvragen downloaden
-              </button>
-            </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* Filters */}
+            <Card className="nieuwsnestje-card">
+              <CardHeader>
+                <CardTitle className="text-2xl font-bold text-foreground flex items-center">
+                  <BarChart3 className="mr-3" />
+                  Filters
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-6">
+                  {/* Onderwerp/categorie */}
+                  <div>
+                    <label className="text-lg font-bold text-foreground mb-3 block">Onderwerp/categorie</label>
+                    <select 
+                      value={selectedCategory}
+                      onChange={(e) => setSelectedCategory(e.target.value)}
+                      className="w-full p-3 rounded-2xl border-2 border-gray-200 focus:border-primary font-medium"
+                    >
+                      {categories.map(cat => (
+                        <option key={cat} value={cat}>{cat}</option>
+                      ))}
+                    </select>
+                  </div>
+
+                  {/* Leerniveau */}
+                  <div>
+                    <label className="text-lg font-bold text-foreground mb-3 block">Leerniveau</label>
+                    <select 
+                      value={selectedLevel}
+                      onChange={(e) => setSelectedLevel(e.target.value)}
+                      className="w-full p-3 rounded-2xl border-2 border-gray-200 focus:border-primary font-medium"
+                    >
+                      {levels.map(level => (
+                        <option key={level} value={level}>{level}</option>
+                      ))}
+                    </select>
+                  </div>
+
+                  {/* Soort materiaal */}
+                  <div>
+                    <label className="text-lg font-bold text-foreground mb-3 block">Soort materiaal</label>
+                    <select 
+                      value={selectedMaterial}
+                      onChange={(e) => setSelectedMaterial(e.target.value)}
+                      className="w-full p-3 rounded-2xl border-2 border-gray-200 focus:border-primary font-medium"
+                    >
+                      {materials.map(material => (
+                        <option key={material} value={material}>{material}</option>
+                      ))}
+                    </select>
+                  </div>
+
+                  {/* Weekselectie */}
+                  <div>
+                    <label className="text-lg font-bold text-foreground mb-3 block">Weekselectie</label>
+                    <select 
+                      value={selectedWeek}
+                      onChange={(e) => setSelectedWeek(e.target.value)}
+                      className="w-full p-3 rounded-2xl border-2 border-gray-200 focus:border-primary font-medium"
+                    >
+                      {weeks.map(week => (
+                        <option key={week.number} value={`${week.number} (${week.mascot})`}>
+                          {week.number} ({week.mascot})
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+
+                  {/* Favorieten */}
+                  <div className="p-4 bg-yellow-50 rounded-2xl border-2 border-yellow-200">
+                    <div className="flex items-center">
+                      <Star className="text-yellow-500 mr-2" fill="currentColor" />
+                      <span className="font-bold text-foreground">Favorieten: 3 items opgeslagen</span>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Voortgangsoverzicht met grafiek */}
+            <Card className="nieuwsnestje-card">
+              <CardHeader>
+                <CardTitle className="text-2xl font-bold text-foreground flex items-center">
+                  <TrendingUp className="mr-3" />
+                  Voortgang klas
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-6">
+                  {/* Statistieken */}
+                  <div className="grid grid-cols-1 gap-4">
+                    {/* Gemaakte quizzen */}
+                    <div className="bg-green-50 p-4 rounded-2xl border-2 border-green-200">
+                      <div className="flex items-center mb-2">
+                        <CheckCircle className="text-green-600 mr-2" size={20} />
+                        <span className="font-bold text-foreground">Quizzen voltooid</span>
+                      </div>
+                      <p className="text-2xl font-bold text-green-600">12 deze week</p>
+                      <p className="text-sm text-muted-foreground">Gemiddeld per kind</p>
+                    </div>
+
+                    {/* Tijd besteed */}
+                    <div className="bg-blue-50 p-4 rounded-2xl border-2 border-blue-200">
+                      <div className="flex items-center mb-2">
+                        <Clock className="text-blue-600 mr-2" size={20} />
+                        <span className="font-bold text-foreground">Tijd besteed</span>
+                      </div>
+                      <p className="text-2xl font-bold text-blue-600">7 min</p>
+                      <p className="text-sm text-muted-foreground">Gemiddeld per kind</p>
+                    </div>
+
+                    {/* Gemiddelde score */}
+                    <div className="bg-purple-50 p-4 rounded-2xl border-2 border-purple-200">
+                      <div className="flex items-center mb-2">
+                        <TrendingUp className="text-purple-600 mr-2" size={20} />
+                        <span className="font-bold text-foreground">Gemiddelde score</span>
+                      </div>
+                      <p className="text-2xl font-bold text-purple-600">3,2 / 4</p>
+                      <p className="text-sm text-muted-foreground">Goed beantwoord</p>
+                    </div>
+                  </div>
+
+                  {/* Grafiek */}
+                  <div className="bg-white p-4 rounded-2xl border-2 border-gray-200">
+                    <h4 className="font-bold text-foreground mb-4">Voortgang per week</h4>
+                    <ChartContainer config={chartConfig} className="h-[200px]">
+                      <ResponsiveContainer width="100%" height="100%">
+                        <BarChart data={chartData}>
+                          <XAxis dataKey="week" />
+                          <YAxis />
+                          <ChartTooltip content={<ChartTooltipContent />} />
+                          <Bar dataKey="quizzes" fill="var(--color-quizzes)" radius={4} />
+                        </BarChart>
+                      </ResponsiveContainer>
+                    </ChartContainer>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
           </div>
+
+          {/* Downloadsectie */}
+          <Card className="nieuwsnestje-card">
+            <CardHeader>
+              <CardTitle className="text-2xl font-bold text-foreground flex items-center">
+                <Download className="mr-3" />
+                Download materialen
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <button className="nieuwsnestje-button w-full text-center p-6">
+                  <span className="text-3xl mb-2 block">📄</span>
+                  Verwerkingsopdrachten downloaden
+                </button>
+                <button className="nieuwsnestje-button w-full text-center p-6">
+                  <span className="text-3xl mb-2 block">🎨</span>
+                  Kleurplaten downloaden
+                </button>
+                <button className="nieuwsnestje-button w-full text-center p-6">
+                  <span className="text-3xl mb-2 block">💬</span>
+                  Gespreksvragen downloaden
+                </button>
+              </div>
+            </CardContent>
+          </Card>
         </div>
       </div>
     </div>
