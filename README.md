@@ -1,73 +1,61 @@
-# Welcome to your Lovable project
+# Nieuwsnestje
 
-## Project info
+afbeelding
 
-**URL**: https://lovable.dev/projects/70d6f387-27a4-448b-9f12-5c2db0206164
+## Korte omschrijving
+Nieuwsnestje is een educatief webplatform voor kinderen uit groep 3 en 4, waarin nieuws op een speelse, veilige en toegankelijke manier wordt aangeboden. Kinderen volgen klassikaal het nieuws via een schattig, digitaal diertje dat hen begeleidt met verhalen, quizvragen en spelelementen.
 
-## How can I edit this code?
+## Over het project
+Nieuwsnestje is ontwikkeld als interdisciplinair project door studenten van Fontys ICT en Fontys Journalistiek. Het platform combineert actuele thema’s met educatieve werkvormen en spelmechanieken, afgestemd op de leerbehoeften van jonge kinderen.
 
-There are several ways of editing your application.
+Het doel: het nieuws begrijpelijk en bespreekbaar maken voor jonge kinderen – zonder te overprikkelen, te versimpelen of te veel van leerkrachten te vragen.
 
-**Use Lovable**
+## Badges
+- [![Next.js](https://img.shields.io/badge/Next.js-black?logo=next.js&logoColor=white)](#)
+- [![TailwindCSS](https://img.shields.io/badge/Tailwind%20CSS-%2338B2AC.svg?logo=tailwind-css&logoColor=white)](#)
+- [![Vercel](https://img.shields.io/badge/Vercel-%23000000.svg?logo=vercel&logoColor=white)](#)
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/70d6f387-27a4-448b-9f12-5c2db0206164) and start prompting.
+## Wat ik heb geleerd
+- Vibe coding: het consistent vertalen van sfeer en belevingswaarden (zoals ‘veilig’, ‘speels’ en ‘rustig’) naar code en UI-componenten. Denk aan kleurgebruik, whitespace, afgeronde vormen en iconografie in combinatie met semantische HTML.
+- Git & versiebeheer: ik werkte met duidelijke commit messages, zodat wijzigingen overzichtelijk en herleidbaar bleven. Dit maakte het samenwerken in GitHub overzichtelijk, en hielp mij bij het bijhouden van iteraties (zoals feedback vanuit gebruikerstests).
+- Vercel deployment: ik leerde hoe ik mijn project live kon zetten via Vercel en hoe ik updates automatisch kon pushen vanuit GitHub.
 
-Changes made via Lovable will be committed automatically to this repo.
+## Projectstructuur
+nieuwsnestje/
+├── public/                   # Statische assets zoals afbeeldingen
+├── src/                      # Broncode van de applicatie
+│   ├── components/           # Herbruikbare componenten
+│   └── index.html            # HTML-entrypoint voor de app
+├── .gitignore                # Git-regels voor bestanden om uit te sluiten
+├── bun.lockb                # Lockbestand voor Bun dependency management
+├── components.json           # Componentconfiguratie (mogelijk vanuit Lovable)
+├── eslint.config.js          # ESLint-configuratiebestand
+├── package.json              # Projectmetadata en scripts
+├── package-lock.json         # Gesloten afhankelijkheden voor NPM
+├── postcss.config.js         # Configuratiebestand voor PostCSS
+├── tailwind.config.ts        # Tailwind CSS-configuratiebestand
+├── tsconfig.json             # Algemene TypeScript-configuratie
+├── tsconfig.app.json         # TypeScript-config voor de app zelf
+├── tsconfig.node.json        # TypeScript-config voor Node-gerelateerde zaken
+├── vite.config.ts            # Vite-configuratiebestand voor bundling
+└── README.md                 # Documentatie van het project
 
-**Use your preferred IDE**
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## Toekomstplannen
+- Aanpasbare weekthema’s voor leerkrachten
+Een dashboard waar leerkrachten zelf kunnen filteren op thema, lengte en gevoeligheid van het nieuwsitem.
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+- Meertalige ondersteuning
+Start met Nederlands, later uitbreiden met Engels en mogelijk Turks of Pools (afhankelijk van gebruikerspopulatie).
 
-Follow these steps:
+- Ingebouwde video-functionaliteit
+Voor leerlingen met een lagere taalvaardigheid wordt het nieuws ook visueel ondersteund met korte animaties of video’s.
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+- Toegankelijkheid & inclusie
+Denk aan contrastinstellingen, voorleesopties, en alternatieve input voor kinderen met een beperking.
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+- Adaptieve quizvragen op niveau
+Automatisch moeilijkheidsniveau bepalen op basis van klasgroep of voortgang.
 
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/70d6f387-27a4-448b-9f12-5c2db0206164) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+- Offline versie (voor scholen zonder stabiele internetverbinding)
+Denk aan een downloadbare versie met lesmateriaal en interactieve opdrachten.
