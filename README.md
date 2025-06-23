@@ -43,14 +43,14 @@ nieuwsnestje/
 ```
 
 ## Bijdrage richtlijnen
-1. Fork & clone
+1. Fork & clone:
 Maak eerst een fork van deze repository.
 Clone je fork lokaal en werk vanuit een aparte branch.
-2. Werken in branches
+2. Werken in branches:
 Gebruik branches voor feature development of bugfixes.
-3. Commitstijl
+3. Commitstijl:
 Gebruik duidelijke commitberichten in Conventional Commits stijl:
-4. Pull request
+4. Pull request:
 Push je branch en maak een pull request.
 
 ## Lokaal draaien
@@ -85,4 +85,4 @@ Denk aan een downloadbare versie met lesmateriaal en interactieve opdrachten.
 De site is gedeployed via Vercel. Elke push naar main branch wordt automatisch live gezet.
 
 ## Licentie informatie
-Dit project is gelicenseerd onder de MIT License - zie het LICENSE bestand voor details.
+Dit project is gelicenseerd onder de MIT License
