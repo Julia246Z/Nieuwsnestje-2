@@ -1,6 +1,6 @@
 # Nieuwsnestje
 
-afbeelding
+![Nieuwsnestje screenshot](./public/Readmeafbeelding.png)
 
 ## Korte omschrijving
 Nieuwsnestje is een educatief webplatform voor kinderen uit groep 3 en 4, waarin nieuws op een speelse, veilige en toegankelijke manier wordt aangeboden. Kinderen volgen klassikaal het nieuws via een schattig, digitaal diertje dat hen begeleidt met verhalen, quizvragen en spelelementen.
