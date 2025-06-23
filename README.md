@@ -40,6 +40,7 @@ nieuwsnestje/
 ├── tailwind.config.js      # Tailwind CSS-configuratie
 ├── postcss.config.js       # PostCSS-configuratie
 ├── README.md               # Projectdocumentatie
+```
 
 
 ## Toekomstplannen
@@ -60,3 +61,6 @@ Automatisch moeilijkheidsniveau bepalen op basis van klasgroep of voortgang.
 
 - Offline versie (voor scholen zonder stabiele internetverbinding):
 Denk aan een downloadbare versie met lesmateriaal en interactieve opdrachten.
+
+## Deployment
+De site is gedeployed via Vercel. Elke push naar main branch wordt automatisch live gezet.
