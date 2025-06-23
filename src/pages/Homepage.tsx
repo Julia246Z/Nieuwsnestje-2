@@ -18,7 +18,7 @@ const Homepage = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
           {/* Vliegtuig nieuws */}
           <Link to="/news/vliegtuig" className="group">
-            <div className="bg-orange-200 rounded-3xl p-8 h-80 flex flex-col justify-between transition-transform duration-300 hover:scale-105">
+            <div>
               <div className="flex-1 flex items-center justify-center">
                 <div className="text-8xl">✈️</div>
               </div>

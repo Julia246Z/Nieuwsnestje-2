@@ -20,16 +20,14 @@ const Gift = () => {
           <div className="flex justify-center mb-12">
             {!isOpened ? (
               <div 
-                className="cursor-pointer transition-transform duration-300 hover:scale-110"
+                className="cursor-pointer"
                 onClick={() => setIsOpened(true)}
               >
-                <div className="w-64 h-64 relative">
-                  <div className="w-full h-48 bg-gradient-to-br from-orange-400 to-red-400 rounded-3xl relative shadow-2xl">
-                    <div className="absolute inset-4 bg-gradient-to-br from-orange-300 to-red-300 rounded-2xl"></div>
-                    <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-24 h-16 bg-gradient-to-b from-yellow-400 to-orange-400 rounded-b-2xl"></div>
-                    <div className="absolute top-4 left-1/2 transform -translate-x-1/2 w-16 h-12 bg-gradient-to-b from-yellow-300 to-orange-300 rounded-b-xl"></div>
-                  </div>
-                </div>
+                  {/* <img
+                    src="/images/cadeautje.png"
+                    alt="Cadeautje"
+                    className="w-64 h-64 object-contain"
+                  /> */}
               </div>
             ) : (
               <div className="animate-bounce-gentle">
