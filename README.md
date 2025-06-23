@@ -21,41 +21,42 @@ Het doel: het nieuws begrijpelijk en bespreekbaar maken voor jonge kinderen – 
 - Vercel deployment: ik leerde hoe ik mijn project live kon zetten via Vercel en hoe ik updates automatisch kon pushen vanuit GitHub.
 
 ## Projectstructuur
+```bash
 nieuwsnestje/
-├── public/                   # Statische assets zoals afbeeldingen
-├── src/                      # Broncode van de applicatie
-│   ├── components/           # Herbruikbare componenten
-│   └── index.html            # HTML-entrypoint voor de app
-├── .gitignore                # Git-regels voor bestanden om uit te sluiten
-├── bun.lockb                # Lockbestand voor Bun dependency management
-├── components.json           # Componentconfiguratie (mogelijk vanuit Lovable)
-├── eslint.config.js          # ESLint-configuratiebestand
-├── package.json              # Projectmetadata en scripts
-├── package-lock.json         # Gesloten afhankelijkheden voor NPM
-├── postcss.config.js         # Configuratiebestand voor PostCSS
-├── tailwind.config.ts        # Tailwind CSS-configuratiebestand
-├── tsconfig.json             # Algemene TypeScript-configuratie
-├── tsconfig.app.json         # TypeScript-config voor de app zelf
-├── tsconfig.node.json        # TypeScript-config voor Node-gerelateerde zaken
-├── vite.config.ts            # Vite-configuratiebestand voor bundling
-└── README.md                 # Documentatie van het project
+├── public/                 # Statische bestanden (zoals afbeeldingen en favicon)
+│   └── pip.png             # Voorbeeld van een afbeelding
+├── src/
+│   └── components/         # Herbruikbare React-componenten
+│       ├── Navbar.jsx
+│       ├── Card.jsx
+│       └── ...
+│   └── pages/              # Next.js pagina's
+│       ├── index.jsx       # Homepagina
+│       ├── verzamelen.jsx  # Verzamelscherm voor diertjes
+│       └── ...
+│   └── styles/             # CSS- en Tailwind-bestanden
+│       └── globals.css
+├── package.json            # Projectconfiguratie en afhankelijkheden
+├── tailwind.config.js      # Tailwind CSS-configuratie
+├── postcss.config.js       # PostCSS-configuratie
+├── README.md               # Projectdocumentatie
 
 
 ## Toekomstplannen
-- Aanpasbare weekthema’s voor leerkrachten
+- Aanpasbare weekthema’s voor leerkrachten:
 Een dashboard waar leerkrachten zelf kunnen filteren op thema, lengte en gevoeligheid van het nieuwsitem.
 
-- Meertalige ondersteuning
+- Meertalige ondersteuning:
 Start met Nederlands, later uitbreiden met Engels en mogelijk Turks of Pools (afhankelijk van gebruikerspopulatie).
 
-- Ingebouwde video-functionaliteit
+- Ingebouwde video-functionaliteit:
 Voor leerlingen met een lagere taalvaardigheid wordt het nieuws ook visueel ondersteund met korte animaties of video’s.
 
-- Toegankelijkheid & inclusie
+- Toegankelijkheid & inclusie:
 Denk aan contrastinstellingen, voorleesopties, en alternatieve input voor kinderen met een beperking.
 
-- Adaptieve quizvragen op niveau
+- Adaptieve quizvragen op niveau:
 Automatisch moeilijkheidsniveau bepalen op basis van klasgroep of voortgang.
 
-- Offline versie (voor scholen zonder stabiele internetverbinding)
+- Offline versie (voor scholen zonder stabiele internetverbinding):
 Denk aan een downloadbare versie met lesmateriaal en interactieve opdrachten.
