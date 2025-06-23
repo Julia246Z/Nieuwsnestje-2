@@ -42,6 +42,25 @@ nieuwsnestje/
 ├── README.md               # Projectdocumentatie
 ```
 
+## Bijdrage richtlijnen
+1. Fork & clone
+Maak eerst een fork van deze repository.
+Clone je fork lokaal en werk vanuit een aparte branch.
+2. Werken in branches
+Gebruik branches voor feature development of bugfixes.
+3. Commitstijl
+Gebruik duidelijke commitberichten in Conventional Commits stijl:
+4. Pull request
+Push je branch en maak een pull request.
+
+## Lokaal draaien
+```bash
+git clone https://github.com/Julia246Z/Nieuwsnestje-2.git
+cd Nieuwsnestje-2
+npm install
+npm run dev
+```
+Open dan http://localhost:3000 in je browser.
 
 ## Toekomstplannen
 - Aanpasbare weekthema’s voor leerkrachten:
@@ -64,3 +83,6 @@ Denk aan een downloadbare versie met lesmateriaal en interactieve opdrachten.
 
 ## Deployment
 De site is gedeployed via Vercel. Elke push naar main branch wordt automatisch live gezet.
+
+## Licentie informatie
+Dit project is gelicenseerd onder de MIT License - zie het LICENSE bestand voor details.
