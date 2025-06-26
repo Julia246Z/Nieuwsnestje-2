@@ -21,7 +21,7 @@ const AnimalCare = () => {
       // Normal Pip - happy and sitting
       return (
         <div className="text-center relative">
-          <div className="text-9xl"><img src="./public/images/pip-blij.png"></img></div>
+          <div className="text-9xl"><img src="images/pip-blij.png"></img></div>
         </div>
       );
     }
@@ -32,7 +32,7 @@ const AnimalCare = () => {
           <div className="text-center relative">
             <div className="text-9xl"><img src="./public/images/pip-blij.png"></img></div>
             <div className="absolute -top-4 -right-4 text-4xl animate-bounce">
-              <img src="./public/images/appel.png"></img>
+              <img src="images/appel.png"></img>
             </div>
           </div>
         );
@@ -41,7 +41,7 @@ const AnimalCare = () => {
           <div className="text-center relative">
             <div className="text-9xl"><img src="./public/images/pip-blij.png"></img></div>
             <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 text-4xl animate-bounce">
-              <img src="./public/images/hand.png"></img>
+              <img src="images/hand.png"></img>
             </div>
           </div>
         );
@@ -50,7 +50,7 @@ const AnimalCare = () => {
           <div className="text-center relative">
             <div className="text-9xl animate-bounce"><img src="./public/images/pip-blij.png"></img></div>
             <div className="absolute -bottom-4 -right-4 text-4xl animate-bounce">
-              <img src="./public/images/bal.png"></img>
+              <img src="images/bal.png"></img>
             </div>
           </div>
         );
@@ -59,14 +59,14 @@ const AnimalCare = () => {
           <div className="text-center relative">
             <div className="text-9xl"><img src="./public/images/pip-blij.png"></img></div>
             <div className="absolute -top-8 -right-2 text-3xl animate-pulse">
-              <img src="./public/images/maan.png"></img>
+              <img src="images/maan.png"></img>
             </div>
           </div>
         );
       default:
         return (
           <div className="text-center">
-            <div className="text-9xl"><img src="./public/images/pip-blij.png"></img></div>
+            <div className="text-9xl"><img src="images/pip-blij.png"></img></div>
           </div>
         );
     }
@@ -111,7 +111,7 @@ const AnimalCare = () => {
             className="bg-yellow-300 hover:bg-yellow-400 rounded-3xl p-8 text-center font-bold text-xl transition-all duration-300 hover:scale-110 cursor-pointer shadow-lg flex flex-col items-center justify-center min-w-[160px] min-h-[160px]"
             disabled={showAnimation}
           >
-            <div className="text-6xl mb-3"><img src="./public/images/appel.png"></img></div>
+            <div className="text-6xl mb-3"><img src="images/appel.png"></img></div>
             <div className="text-lg font-bold text-foreground">Geef eten</div>
           </button>
           
@@ -120,7 +120,7 @@ const AnimalCare = () => {
             className="bg-nieuwsnestje-blue hover:bg-blue-300 rounded-3xl p-8 text-center font-bold text-xl transition-all duration-300 hover:scale-110 cursor-pointer shadow-lg flex flex-col items-center justify-center min-w-[160px] min-h-[160px]"
             disabled={showAnimation}
           >
-            <div className="text-6xl mb-3"><img src="./public/images/hand.png"></img></div>
+            <div className="text-6xl mb-3"><img src="images/hand.png"></img></div>
             <div className="text-lg font-bold text-white">Aai</div>
           </button>
           
@@ -129,7 +129,7 @@ const AnimalCare = () => {
             className="bg-nieuwsnestje-mint hover:bg-green-300 rounded-3xl p-8 text-center font-bold text-xl transition-all duration-300 hover:scale-110 cursor-pointer shadow-lg flex flex-col items-center justify-center min-w-[160px] min-h-[160px]"
             disabled={showAnimation}
           >
-            <div className="text-6xl mb-3"><img src="./public/images/bal.png"></img></div>
+            <div className="text-6xl mb-3"><img src="images/bal.png"></img></div>
             <div className="text-lg font-bold text-foreground">Speel</div>
           </button>
           
@@ -138,7 +138,7 @@ const AnimalCare = () => {
             className="bg-orange-300 hover:bg-orange-400 rounded-3xl p-8 text-center font-bold text-xl transition-all duration-300 hover:scale-110 cursor-pointer shadow-lg flex flex-col items-center justify-center min-w-[160px] min-h-[160px]"
             disabled={showAnimation}
           >
-            <div className="text-6xl mb-3"><img src="./public/images/maan.png"></img></div>
+            <div className="text-6xl mb-3"><img src="images/maan.png"></img></div>
             <div className="text-lg font-bold text-foreground">Slaap</div>
           </button>
         </div>
