@@ -14,7 +14,7 @@ const Navigation = () => {
     <nav className="flex justify-between items-center p-6 bg-white shadow-sm">
       <div className="flex items-center space-x-4">
         <div className="w-12 h-12 bg-nieuwsnestje-blue rounded-full flex items-center">
-          <span className="text-2xl"><img src="images/logo.png"></img></span>
+          <span className="text-2xl"><img src="/images/logo.png"></img></span>
         </div>
         <h1 className="text-3xl font-bold text-foreground">Nieuwsnestje</h1>
       </div>
